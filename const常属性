@@ -1,0 +1,13 @@
+int main()
+{
+	const int n = 10;
+	int arr[n] = {0};
+
+	const int num = 4;//const-常属性
+	printf("%d\n", num);
+	num = 8;
+	printf("%d\n", num);
+
+
+	return 0;
+}
