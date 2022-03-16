@@ -1,0 +1,11 @@
+int main()
+{
+	int a = 0;
+	scanf("%d", &a);
+	int b = a % 2;
+	if (0 == b)
+		printf("是\n");
+	else
+		printf("不是\n");
+	return 0;
+}
