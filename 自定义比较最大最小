@@ -1,0 +1,23 @@
+#define min(a, b) (a < b ? a : b)
+int main()
+{
+
+	int a, b, c, d;
+	scanf("%d %d %d %d", &a, &b, &c, &d);
+	printf("%d\n", min(min(min(a, b), c), d));
+
+	return 0;
+
+}
+
+
+#define max(a, b) (a > b ? a : b)
+int main()
+{
+
+		int a, b, c, d;
+		scanf("%d %d %d %d", &a, &b, &c, &d);
+		printf("%d\n", max(max(max(a, b), c), d));
+
+		return 0;
+}
