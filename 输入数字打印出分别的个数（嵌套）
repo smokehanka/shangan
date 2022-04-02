@@ -1,0 +1,21 @@
+void print(int n)
+{
+	if (n > 9)
+	{
+		print(n / 10);
+	}
+	printf("%d ", n % 10);
+}
+int main()
+{
+	unsigned int num = 0;//unsigned修饰变量无符号，signed表示有符号的
+	scanf("%d", &num);
+	//printf(1234)
+	// printf(123) 4
+	//  printf(12) 3 4
+	//   printf(1) 2 3 4
+	//	  printf1 2 3 4 
+	//递归
+	print(num);
+	return 0;
+}
