@@ -1,0 +1,35 @@
+void Bubble_sort(int sz, int arr[])
+{
+	int x = 0;
+	for (x = 0; x < sz - 1; x++)
+	{
+		int flag = 1;//假设这一趟排序已经有序
+		int y = 0;
+		for (y = 0; y < sz - 1 - x; y++)
+		{
+			if (arr[y] > arr[y + 1])
+			{
+				int tmp = arr[y];
+				arr[y] = arr[y+1];
+				arr[y + 1] = tmp;
+				flag = 0;//如果执行了交换将flag赋值为0；
+			}
+		}
+		if (flag == 1)//如果没有交换则证明已经排序完成提前结束循环
+		{
+			break;
+		}
+	}
+}
+int main()
+{
+	int arr[] = { 34,53,12,90,11,1 };
+	int i = 0;
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	Bubble_sort(sz, arr);
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d  ", arr[i]);
+	}
+	return 0;
+}
