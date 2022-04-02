@@ -1,0 +1,29 @@
+void move(int i,char pos1, char pos2)
+{
+	printf("第%d次 %c -> %c\n",i ,pos1, pos2);
+}
+void hanoi(int n, char pos1, char pos2, char pos3)
+
+{
+	static int i = 1;
+	if (n == 1)
+	{
+		move(i,pos1, pos3);
+		i++;
+	}
+	else
+	{
+		hanoi(n - 1, pos1, pos3, pos2);//pos1移动到pos2上
+		move(i,pos1, pos3);
+		i++;
+		hanoi(n - 1, pos2, pos1, pos3);//中转柱变为起始柱，起始柱变为中转柱
+	}
+}
+int main()
+{
+	int i = 0;
+	printf("$$$\n");
+	scanf("%d", &i);
+	hanoi(i, 'A', 'B', 'C');
+	return 0;
+}
