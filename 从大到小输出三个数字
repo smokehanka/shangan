@@ -1,0 +1,25 @@
+int main()
+{
+	int a, b, c;
+	scanf("%d%d%d", &a, &b, &c);
+	if (a < b)
+	{
+		int V = a;
+		a = b;
+		b = V;
+	}
+	if (a < c)
+	{
+		int V = a;
+		a = c;
+		c = V;
+	}
+	if (b < c)
+	{
+		int V = b;
+		b = c;
+		c = V;
+	}
+	printf("%d %d %d \n", a, b, c);
+	return 0;
+}
