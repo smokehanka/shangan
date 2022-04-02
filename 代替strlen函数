@@ -1,0 +1,32 @@
+int my_strlen(char* str)
+{
+	int count = 0;
+	 while(*str != '\0')//*str从左向右找到一个字符
+	{
+		count++;//计数
+		str++;//向右加一位
+	}
+	 return count;
+}
+//--------------------------------------------------------------
+int my_strlen(char* str)
+{
+	if (*str != '\0')
+		return 1 + my_strlen(str + 1);//str+1就是字符串向后一位的字符
+	else
+		return 0;
+}
+
+ //my_strlen("bit");
+ //1+my_strlen("it");
+ //1+1+my_strlen("t");
+ //1+1+1+my_strlen("");
+ //1+1+1+0
+ //3
+int main()
+{
+	char arr[] = "bit";
+	int len = my_strlen(arr);//arr是数组，数组传参，传过去的不是整个数组，而是第一个元素的地址
+	printf("%d\n", len);
+	return 0;
+}
