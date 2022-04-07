@@ -19,7 +19,7 @@ void selection_sort(int list[NUM])
 				min = j;
 			}
 		}
-		//防止死循环，并将最小值和list[i]互换
+		//防止原地交换，并将最小值和list[i]互换
 		if (min != j)
 		{
 			tmp = list[min];
