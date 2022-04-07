@@ -1,0 +1,41 @@
+#define NUM 8
+void selection_sort(int list[NUM])
+{
+	int i;
+	int j;
+	//设置最小值下标
+	int min;
+	int tmp;
+	for (i = 0; i < NUM - 1; i++)
+	{
+		//初始化下标随i变化
+		min = i;
+		//每次循环j从后一位数开始
+		for (j = i + 1; j < NUM; j++)
+		{
+			//如果list[min]的值大于后一个值就把list[j]赋值给list[min]
+			if (list[min] > list[j])
+			{
+				min = j;
+			}
+		}
+		//防止死循环，并将最小值和list[i]互换
+		if (min != j)
+		{
+			tmp = list[min];
+			list[min] = list[i];
+			list[i] = tmp;
+		}
+	}
+}
+int main()
+{
+	int i = 0;
+	int list[NUM] = { 23,43,11,43,2,54,11,444 };
+	selection_sort(list);
+	for (i = 0; i < NUM; i++)
+	{
+		printf("%d ", list[i]);
+	}
+	return 0;
+}
