@@ -1,0 +1,38 @@
+#define NUM 8
+void insertion_sort(int list[NUM])
+{
+	//记录要排序的元素
+	int insert_elem;
+	//记录排序元素的下标
+	int position;
+	int i;
+	//从第二个元素开始排序，下标为1
+	for (i = 1; i < NUM; i++)
+	{
+		insert_elem = list[i];//赋值
+		position = i;//赋值
+		//下标大于0且要排序的元素的上一个大于该元素时循环
+		while (position > 0 && list[position - 1] > insert_elem)
+		{
+			//将要排序的元素的上一个元素的值赋给要排序的元素
+			list[position] = list[position - 1];
+			position--;
+		}
+		//下标不等于最小值1时成立，将找到的位置的值改成要排序的元素
+		if (position != 1)
+		{
+			list[position] = insert_elem;
+		}
+	}
+}
+int main()
+{
+	int i = 0;
+	int list[NUM] = { 14,33,2,45,646,54,21,12 };
+	insertion_sort(list);
+	for (i = 0; i < NUM; i++)
+	{
+		printf("%d\n", list[i]);
+	}
+	return 0;
+}
