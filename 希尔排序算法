@@ -1,0 +1,49 @@
+#define NUM 9
+void shell_sort(int list[NUM])
+{
+	int i, j, temp;
+	int interval = 1;
+	//计算可用的最大间隔放置在interval
+	while (interval < NUM / 3)
+	{
+		interval = interval * 3 + 1;
+	}
+	while (interval > 0)
+	{
+		//以每次间隔数两端的两个数开始循环比较
+		for (i = interval; i < NUM; i++)
+		{
+			//赋值temp等于每次比较的后一个数的值
+			temp = list[i];
+			//赋值j等于每次比较的后一个数的下标
+			j = i;
+			//下标比最大间隔数减一大确保条件成立，j-interval为前一个数，和temp（后一个数）比较
+			while (j > interval - 1 && list[j - interval] >= temp)
+			{
+				//*如果temp用list[j]代替的话后面j-=interval再重新回到while循环时就无法跳出循环
+				//如果前一个数大，则交换j为循环内的后一个数(每次while循环后j被重新赋值）（temp为进入while循环前的条件)
+				list[j] = list[j - interval];
+				//给j赋值为前一个数，下面交换两个数的位置，大于后跳出循环
+				j -= interval;
+			}
+			if (j != i)
+			{
+				//交换
+				list[j] = temp;
+			}
+		}
+		//一次循环完成后将间隔减小
+		interval = (interval - 1) / 3;
+	}
+}
+int main()
+{
+	int i = 0;
+	int list[NUM] = { 32,345,75,23,4,32,7,34,43 };
+	shell_sort(list);
+	for (i = 0; i < NUM; i++)
+	{
+		printf("%d ", list[i]);
+	}
+	return 0;
+}
