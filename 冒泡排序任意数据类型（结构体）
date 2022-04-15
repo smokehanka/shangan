@@ -13,6 +13,7 @@ int cmp_stu_by_name(const void* a, const void* b)
 	//字符串比较不能直接用><=来比较，应该用strcmp函数
 	return strcmp(((struct Stu*)a)->name ,((struct Stu*)b)->name);
 }
+//交换函数(单字符交换）
 void Swap(char* buf1, char* buf2,int width)
 {
 	int i = 0;
@@ -36,6 +37,7 @@ void Bubble_sort(void* base,int sz,int width ,int (*cmp)(void*e1,void*e2))
 		int j = 0;
 		for (j = 0; j <sz-1-i ; j++)
 		{
+		//前一个数和后一个数比较cmp比较方法base首元素，j*width宽度（字节）（j+1）*width访问下一个元素要跳过几个字节
 			if (cmp((char*)base+j*width,(char*)base+(j+1)*width) > 0)
 			{
 				//交换
@@ -48,6 +50,7 @@ test2()
 {
 	struct Stu s[3] = { {"C",20},{"B",30},{"A",10} };
 	int sz = sizeof(s) / sizeof(s[0]);
+	//cmp_stu_by_age函数说明比较方法（参考qsort）
 	Bubble_sort(s,sz,sizeof(s[0]),cmp_stu_by_age);
 	
 	printf("%d ", s[0].age);
