@@ -1,0 +1,25 @@
+int compare(const void* a, const void* b)
+{
+	return (*(int*)a - *(int*)b);//小于等于0时两元素位置不变
+  //大于0时两元素交换位置实现排序
+}
+//{
+//int *pa=(int*)a;
+//int *pb=(int*)b;
+//int num1=*pa;
+//int num2=*pb;
+//return num1-num2;
+//}
+int main()
+{
+	int i;
+	int list[] = { 4,6,7,4,6,3,5,1,2,9 };
+  
+  //qsort（数组，元素个数，元素类型，compare（函数名称））
+	qsort(list, 10, sizeof(int), compare);
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d ", list[i]);
+	}
+	return 0;
+}
