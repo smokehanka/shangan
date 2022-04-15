@@ -1,0 +1,27 @@
+struct Stu
+{
+	char name[20];
+	int age;
+};
+int cmp_stu_by_age(const void* a, const void* b)
+{
+	return ((struct Stu*)a)->age - ((struct Stu*)b)->age;
+}
+int cmp_stu_by_name(const void* a, const void* b)
+{
+	//比较名字就是比较字符串
+	//字符串比较不能直接用><=来比较，应该用strcmp函数
+	return strcmp(((struct Stu*)a)->name ,((struct Stu*)b)->name);
+}
+test()
+{
+	struct Stu s[3] = { {"C",20},{"B",30},{"A",10} };
+	int sz = sizeof(s) / sizeof(s[0]);
+	qsort(s, sz, sizeof(s[0]), cmp_stu_by_age);
+	qsort(s, sz, sizeof(s[0]), cmp_stu_by_name);
+}
+int main()
+{
+	test();
+	return 0;
+}
