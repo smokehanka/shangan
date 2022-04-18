@@ -21,3 +21,27 @@ int main()
 	
 	return 0;
 }
+
+
+int main()
+{
+	char arr[] = "abcdef";
+
+	printf("%d\n", sizeof(arr));//7-元素结尾\0
+	printf("%d\n", sizeof(arr+0));//4
+	printf("%d\n", sizeof(*arr));//1
+	printf("%d\n", sizeof(arr[1]));//1
+	printf("%d\n", sizeof(&arr));//4
+	printf("%d\n", sizeof(&arr+1));//4
+	printf("%d\n", sizeof(&arr[0]+1));//4
+	
+	printf("%d\n", strlen(arr));//6-\0之前6个字符
+	printf("%d\n", strlen(arr + 0));//6
+	//printf("%d\n", strlen(*arr));//error-非法访问内存
+	//printf("%d\n", strlen(arr[1]));//error-非法访问内存
+	printf("%d\n", strlen(&arr));//6-&arr-数组的地址-数组指针 char(*p)[7]=&arr
+	printf("%d\n", strlen(&arr + 1));//随机值
+	printf("%d\n", strlen(&arr[0] + 1));//5-+1指向b的地址，从b开始
+
+	return 0;
+}
