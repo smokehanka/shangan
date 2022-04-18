@@ -1,6 +1,7 @@
 int main()
 {
 	char arr[] = { 'a','b','c','d','e','f' };
+	
 	printf("%d\n", sizeof(arr));//sizeof计算的是数组大小 6*1=6个字节
 	printf("%d\n", sizeof(arr+0));//arr是首元素的地址，arr+0还是首元素地址，地址大小是4/8个字节
 	printf("%d\n", sizeof(*arr));//1   arr是首元素地址，*arr就是首元素，首元素是字符大小是一个字节
@@ -8,5 +9,15 @@ int main()
 	printf("%d\n", sizeof(&arr));//&arr虽然是数组的地址，但还是地址，地址大小是4/8个字节
 	printf("%d\n", sizeof(&arr+1));//&arr+1是跳过整个数组后的地址，地址大小是4/8个字节
 	printf("%d\n", sizeof(&arr[0]+1));//第二个元素的地址
+	
+	
+	printf("%d\n", strlen(arr));//随机值x
+	printf("%d\n", strlen(arr + 0));//随机值x
+	//printf("%d\n", strlen(*arr));//error
+	//printf("%d\n", strlen(arr[1]));//error
+	printf("%d\n", strlen(&arr));//随机值x
+	printf("%d\n", strlen(&arr + 1));//随机值x-6
+	printf("%d\n", strlen(&arr[0] + 1));//随机值x-1
+	
 	return 0;
 }
