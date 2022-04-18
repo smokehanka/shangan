@@ -1,0 +1,22 @@
+int main()
+{
+	char* p = "abcdef";
+
+		printf("%d\n", sizeof(p));//4/8-计算指针变量p的大小
+		printf("%d\n", sizeof(p+1));//4/8-p+1得到的是字符b的地址
+		printf("%d\n", sizeof(*p));//1-*p即使字符串的第一个字符-’a‘
+		printf("%d\n", sizeof(p[0]));//1-   int arr[10];  arr[0]==*(arr+0)那么p[0] == *(p+0)
+		printf("%d\n", sizeof(&p));//4/8
+		printf("%d\n", sizeof(&p+1));//4/8-跳过整个地址p
+		printf("%d\n", sizeof(&p[0]+1));//4/8-a的地址+1就是b的地址
+		
+		printf("%d\n", strlen(p));//6
+		printf("%d\n", strlen(p + 1));//5
+		//printf("%d\n", strlen(*p));//error
+		//printf("%d\n", strlen(p[0]));//error
+		printf("%d\n", strlen(&p));//随机值，&p是个地址
+		printf("%d\n", strlen(&p + 1));//随机值
+		printf("%d\n", strlen(&p[0] + 1));//5
+
+	return 0;
+}
