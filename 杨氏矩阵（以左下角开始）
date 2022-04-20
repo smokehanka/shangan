@@ -1,0 +1,42 @@
+FindNum(int list[3][3], int k, int* line, int* row)
+{
+	int x = *line-1;//定义行
+	int y = 0;//定义列
+	while (x >=0 && y <=*row-1)
+	{
+		if (list[x][y] < k)
+		{
+			y++;
+		}
+		else if (list[x][y] > k)
+		{
+			x--;
+		}
+		else
+		{
+			*line = x;
+			*row = y;
+			return 1;
+		}
+	}
+}
+int main()
+{
+	int list[3][3] = { {1,2,3},{4,5,6},{7,8,9} };
+	int k;
+	int line = 3;
+	int row = 3;
+	scanf("%d", &k);
+	//返回型参数
+	int ret = FindNum(list, k, &line, &row);
+	if (ret == 1)
+	{
+		printf("找到了\n");
+		printf("下标是:%d %d\n", line, row);
+	}
+	else
+	{
+		printf("找不到\n");
+	}
+	return 0;
+}
