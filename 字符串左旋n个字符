@@ -1,3 +1,5 @@
+
+//暴力求解法
 void left_move(char* str ,int k)
 {
 	int i = 0;
