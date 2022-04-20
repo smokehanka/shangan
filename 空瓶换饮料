@@ -14,3 +14,20 @@ int main()
 	printf("total=%d", total);
 	return 0;
 }
+
+
+//或者
+
+int main()
+{
+	int money = 0;
+	int total = 0;
+	int empty = 0;
+	scanf("%d", &money);
+	if(money==0)
+	total=0;
+	else
+	total=2*money-1;
+	printf("total=%d", total);
+	return 0;
+}
