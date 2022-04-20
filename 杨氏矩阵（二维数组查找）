@@ -1,0 +1,39 @@
+#define LINE 3
+#define ROW 3
+int findnum(int list[LINE][ROW],int k,int line,int row)
+{
+	int x = 0;//定义行
+	int y = row - 1;//定义列
+	while (x<=line-1&&y>=0) 
+	{
+		if (list[x][y] > k)
+		{
+			y--;
+		}
+		else if (list[x][y] < k)
+		{
+			x++;
+		}
+		else
+		{
+			return 1;
+		}
+	}
+}
+
+int main()
+{
+	int list[LINE][ROW] = { {1,2,3},{4,5,6},{7,8,9} };
+	int k;
+	scanf("%d", &k);
+	int ret = FindNum(list, k, LINE, ROW);
+	if (ret == 1)
+	{
+		printf("找到了\n");
+	}
+	else
+	{
+		printf("找不到\n");
+	}
+	return 0;
+}
