@@ -15,6 +15,7 @@ void left_move2(char* str, int k)
 {
 	assert(str);
 	int len = strlen(str);
+	assert(k < len);
 	reverse(str,str+k-1);//逆序左边
 	reverse(str+k,str+len-1);//逆序右边
 	reverse(str,str+len-1);//逆序整体
