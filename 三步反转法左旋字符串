@@ -1,0 +1,31 @@
+void reverse(char* left, char* right)
+{
+	assert(left);
+	assert(right);
+	while (left<right)
+	{
+		char tmp = *left;
+		*left = *right;
+		*right = tmp;
+		left++;
+		right--;
+	}
+}
+void left_move2(char* str, int k)
+{
+	assert(str);
+	int len = strlen(str);
+	reverse(str,str+k-1);//逆序左边
+	reverse(str+k,str+len-1);//逆序右边
+	reverse(str,str+len-1);//逆序整体
+}
+int main()
+{
+	char arr[] = "abcdef";
+	int k;
+	scanf("%d", &k);
+	//left_move(arr, k);
+	left_move2(arr, k);
+	printf("%s\n", arr);
+	return 0;
+}
