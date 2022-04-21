@@ -1,0 +1,42 @@
+//计数器的方法
+int My_Strlen1(const char* str)
+{
+	int count = 0;
+	assert(str != 0);
+	while (*str != '\0')
+	{
+		count++;
+		str++;
+	}
+	return count;
+}
+//递归
+int My_Strlen2(const char* str)
+{
+	if (*str == '\0')
+	{
+		return 0;
+	}
+	return 1 + My_Strlen2(str + 1);
+}
+//指针-指针
+int My_Strlen3(char* str)
+{
+	char* p = str;
+	while (*p != '\0')
+	{
+		p++;
+	}
+	return p - str;
+}
+int main()
+{
+	char list[] = "abcdef";
+	int ret1 = My_Strlen1(list);
+	int ret2 = My_Strlen2(list);
+	int ret3 = My_Strlen3(list);
+	printf("%d\n", ret1);
+	printf("%d\n", ret2);
+	printf("%d\n", ret3);
+	return 0;
+}
