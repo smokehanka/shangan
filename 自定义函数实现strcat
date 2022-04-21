@@ -1,0 +1,25 @@
+char* My_Strcat(char* dest,const char* src)
+{
+	assert(dest && src);//相当于都不等于空指针
+	char* ret = dest;
+	//1.找到目的字符串的'\0'
+	while (*dest != '\0')
+	{
+		dest++;
+	}
+	//2.追加
+	while (*dest++ = *src++)
+	{
+		;
+	}
+	return ret;
+}
+int main()
+{
+	char list1[20] = "hello";
+	char list2[] = "sb";
+	//strcat(list1, list2);
+	char* ret = My_Strcat(list1, list2);
+	printf("%s\n", ret);
+	return 0;
+}
