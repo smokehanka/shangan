@@ -1,0 +1,39 @@
+char* My_Strstr(const char* p1,const char* p2)
+{
+	assert(p1 != NULL);
+	assert(p2 != NULL);
+	//s1，s2用来游历字符
+	char* s1 = p1;
+	char* s2 = p2;
+	//记录第一个字符相等的位置
+	char* cur = p1;
+	if (*p2 == '\0')
+	{
+		return p1;
+	}
+	while (*cur)
+	{
+		//如果while循环中不相等，重新赋值s1，s2，并将s1向后一位
+		s1 = cur;
+		s2 = p2;
+		while ((*s1 == *s2)&&(*s2 != '\0')&&(*s1 != '\0'))
+		{
+			s1++;
+			s2++;
+		}
+		if (*s2 == '\0')
+		{
+			return cur;
+		}
+		cur++;
+	}
+	return NULL;
+}
+int main()
+{
+	char* p1 = "abcdefabcdef";
+	char* p2 = "de";
+	char* ret = My_Strstr(p1, p2);
+	printf("%s\n", ret);
+	return 0;
+}
