@@ -1,0 +1,27 @@
+typedef struct S
+{
+	char name[20];
+	int age;
+}S;
+void* My_Memcpy(void* dest, const void* src, size_t num)
+{
+	void* ret = dest;
+	assert(dest != NULL);
+	assert(src != NULL);
+	while (num--)
+	{
+		*(char*)dest = *(char*)src;
+		++(char*)dest;
+		++(char*)src;
+	}
+	return ret;
+}
+int main()
+{
+	S arr1[] = { {"张三",20},{"李四",30} };
+	S arr2[] = { 0 };
+	My_Memcpy(arr2, arr1, sizeof(arr1));
+	printf("%s %d\n", arr2[0].name, arr2[0].age);
+	printf("%s %d\n", arr2[1].name, arr2[1].age);
+	return 0;
+}
